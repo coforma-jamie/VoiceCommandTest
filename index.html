@@ -81,7 +81,8 @@
   <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
 <h4>No ARIA - duplicate</h4>
 <p>How does the tool deal with duplicate links?</p>
-<p><a href="#">A standard link</a></p></div>
+<p><a href="#">Another link</a></p></div>
+    <p><a href="#">Aanother link</a></p></div>
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
 <h4>aria-label, beginning match</h4>
@@ -125,7 +126,8 @@
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
 <h4>No ARIA - duplicate</h4>
 <p>How does the tool deal with duplicate buttons?</p>
-<button>A standard button</button>
+<button>Another button</button>
+  <button>Another button</button>
 </div>
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
@@ -247,8 +249,14 @@
 <p>How does the tool deal with duplicate "va-link" components?</p>
 <p> 
 <va-link
-    href="https://va.gov/vso/"
-    text="Contact a local Veterans Service Organization (VSO)"
+    href="https://va.gov/"
+    text="Call us"
+  />
+</p>
+  <p> 
+<va-link
+    href="https://va.gov/"
+    text="Call us"
   />
 </p>
 </div>
@@ -306,7 +314,11 @@
 <p>How does the tool deal with duplicate "va-button" components?</p>
 <va-button
    onClick={function noRefCheck(){}}
-   text="Default">
+   text="Click it!">
+</va-button>
+    <va-button
+   onClick={function noRefCheck(){}}
+   text="Click it!">
 </va-button>
 </div>
 
