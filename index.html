@@ -74,45 +74,45 @@
 
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
-<h4>No ARIA</h4>
+<h4 id="linkNoARIA">No ARIA</h4>
 <p>This link doesn't use ARIA.</p>
-<p><a href="#">A standard link</a></p></div>
+<p><a href="#linkNoARIA">A standard link</a></p></div>
 
   <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
-<h4>No ARIA - duplicate</h4>
+<h4 id="linkNoARIAdup">No ARIA - duplicate</h4>
 <p>How does the tool deal with duplicate links?</p>
-<p><a href="#">Another link</a></p>
-    <p><a href="#">Another link</a></p></div>
+<p><a href="#linkNoARIAdup">Another link</a></p>
+    <p><a href="#linkNoARIAdup">Another link</a></p></div>
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
-<h4>aria-label, beginning match</h4>
+<h4 id="linkARIAbegin">aria-label, beginning match</h4>
 <p>aria-label="My link to website"</p>
-<p><a href="#" aria-label="My link to website">My link</a></p>
+<p><a href="#linkARIAbegin" aria-label="My link to website">My link</a></p>
 
   </div>
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
-<h4>aria-label, match in the middle</h4>
+<h4 id="linkARIAmiddle">aria-label, match in the middle</h4>
 <p>aria-label="The middle"</p>
-<p><a href="#" aria-label="The middle">Match in the middle</a></p>
+<p><a href="#linkARIAmiddle" aria-label="The middle">Match in the middle</a></p>
 </div>
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
-<h4>aria-label, no match</h4>
+<h4 id="linkARIAnone">aria-label, no match</h4>
 <p>aria-label="Hello"</p>
-<p><a href="#" aria-label="Hello">Goodbye</a></p>
+<p><a href="#linkARIAnone" aria-label="Hello">Goodbye</a></p>
 </div>
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
-<h4>aria-labelledby</h4>
+<h4 id="linkARIAlabelledby">aria-labelledby</h4>
 <p><em>This paragraph has an ID of "summer":</em></p>
 <p id="summer">Summer</p>
 
 <p><em>This link has an ID of "breeze", is labeled by "summer breeze"; the accName is "Summer Breeze"</em></p>
-<p><a href="#" id="breeze" aria-labelledby="summer breeze">Breeze</a></p>
+<p><a href="#linkARIAlabelledby" id="breeze" aria-labelledby="summer breeze">Breeze</a></p>
   
 <p><em>This link has an ID of "breeze2", is labeled by "breeze2 summer"; the accName is "Breeze Summer"</em></p>
-<p><a href="#" id="breeze2" aria-labelledby="breeze2 summer">Breeze</a></p>
+<p><a href="#linkARIAlabelledby" id="breeze2" aria-labelledby="breeze2 summer">Breeze</a></p>
 </div>
   
 <h3>Buttons</h3>
@@ -234,39 +234,39 @@
 
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
-<h4>No ARIA</h4>
+<h4 id="vadsNoARIA">No ARIA</h4>
   <p>This link doesn't use ARIA.</p>
 <p> 
 <va-link
-    href="https://va.gov/vso/"
+    href="#vadsNoARIA"
     text="Contact a local Veterans Service Organization (VSO)"
   />
 </p>
 </div>
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
-<h4>No ARIA, duplicate</h4>
+<h4 id="vadsNoARIAdup">No ARIA, duplicate</h4>
 <p>How does the tool deal with duplicate "va-link" components?</p>
 <p> 
 <va-link
-    href="https://va.gov/"
+    href="#vadsNoARIAdup"
     text="Call us"
   />
 </p>
   <p> 
 <va-link
-    href="https://va.gov/"
+    href="#vadsNoARIAdup"
     text="Call us"
   />
 </p>
 </div>
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
-<h4>aria-label, beginning match</h4>
+<h4 id="vadsARIAbegin">aria-label, beginning match</h4>
 <p>aria-label="Records on VA.gov"</p>
 <p>
 <va-link
-    href="https://va.gov/"
+    href="#vadsARIAbegin"
     text="Records"
     label="Records on VA.gov"
   />
@@ -274,11 +274,11 @@
 </div>
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
-<h4>aria-label, match in the middle</h4>
+<h4 id="vadsARIAmiddle">aria-label, match in the middle</h4>
 <p>aria-label="Check your claims"</p>
 <p>
 <va-link
-    href="https://va.gov/"
+    href="#vadsARIAmiddle"
     text="Claims"
     label="Check your claims"
   />
@@ -286,11 +286,11 @@
 </div>
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
-<h4>aria-label, no match</h4>
+<h4 id="vadsARIAno">aria-label, no match</h4>
 <p>aria-label="Evening"</p>
 <p>
 <va-link
-    href="https://va.gov/"
+    href="#vadsARIAno"
     text="Morning"
     label="Evening"
   />
