@@ -1,0 +1,404 @@
+<html>
+  <head>
+    <title></title>
+
+     <link
+   rel="stylesheet"
+   type="text/css"
+   href="https://cdn.jsdelivr.net/npm/@department-of-veterans-affairs/component-library/dist/main.css"
+ />
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdn.jsdelivr.net/npm/@department-of-veterans-affairs/formation/dist/formation.min.css"
+/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type="module">
+  import { defineCustomElements } from "https://cdn.jsdelivr.net/npm/@department-of-veterans-affairs/web-components/loader/index.js";
+  defineCustomElements();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axe-core/2.1.7/axe.js" ></script>
+
+<!-- uswds -->
+<script src="https://cdn.jsdelivr.net/npm/uswds@3.0.0-beta.3/dist/js/uswds.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/uswds@3.0.0-beta.3/dist/css/uswds.min.css" rel="stylesheet">
+    
+  </head>
+  <body class="vads-u-padding-x--2 vads-u-padding-y--2">
+
+    <h1>Interactive elements + voice command test page</h1>
+
+<p>This page is a playground to test how voice command tools interact with the accessible names of interactive elements, and how they determine those names.</p>
+  
+  <p>We're testing two sets of components:</p>
+  <ul><li>"Standard" components like a and button</li>
+    <li>VADS components like va-link and va-button</li>
+  </ul>
+  
+<h2>Instructions</h2>
+<ol>
+  <li>Open the <a href="https://docs.google.com/spreadsheets/d/154S4eYogg-k-Lx-GFLZuriIs8Nr3q2LO7gRY3jxamvU/edit?gid=0#gid=0" target="_blank">audit spreadsheet (opens in new tab)</a></li>
+<li>Pick one of the following tools:
+<ul>
+  <li><strong>who?:</strong> Dragon (latest version)</li>
+  <li><strong>who?:</strong> Dragon (earlier version)</li>
+  <li><strong>who?:</strong> Talon</li>
+  <li><strong>who?:</strong> Apple Voice Control (iOS)</li>
+  <li><strong>Jamie:</strong> Apple Voice Control (MacOS)</li>
+  <li><strong>who?:</strong> Windows Speech Recognition (Windows 10 and earlier)</li>
+  <li><strong>who?:</strong> Windows Voice Access (Windows 11)</li>
+  <li><strong>who?:</strong> Android Voice Access (unrelated to the Windows feature of the same name)</li>
+  </ul></li>
+  
+<li>For each interactive element on the page, using each tool listed above, do the following:
+<ol>
+  <li>Interact via the visible label (i.e., the visible text within the component)</li>
+  <li>Interact via the accessible name (accName)
+    <ul><li>elements not using ARIA - the visible label IS the accName</li>
+      <li>for elements using aria-label, the accName is the aria-label</li>
+      <li>elements using aria-labelledby have their accName specified</li>
+    </ul>
+  </li>
+  <li>Interact via a combination of visible label and accName, if applicable</li>
+  <li>Determine if the test is <strong>successful</strong> - you are able to use the visual label to activate the element.</li>
+  <li>Write down your findings in the audit spreadsheet</li>
+  </ol></li>
+  
+  <li>If you've completed testing all interactive elements using a specific tool, label the tool in the list above  with a checkmark: ✅</li>
+  </ol>
+  
+<hr aria-hidden="true">
+
+<h2>Standard browser components</h2>
+<h3>Links</h3>
+
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>No ARIA</h4>
+<p>This link doesn't use ARIA.</p>
+<p><a href="#">A standard link</a></p></div>
+
+  <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>No ARIA - duplicate</h4>
+<p>How does the tool deal with duplicate links?</p>
+<p><a href="#">A standard link</a></p></div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>aria-label, beginning match</h4>
+<p>aria-label="My link to website"</p>
+<p><a href="#" aria-label="My link to website">My link</a></p>
+
+  </div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>aria-label, match in the middle</h4>
+<p>aria-label="The middle"</p>
+<p><a href="#" aria-label="The middle">Match in the middle</a></p>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>aria-label, no match</h4>
+<p>aria-label="Hello"</p>
+<p><a href="#" aria-label="Hello">Goodbye</a></p>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>aria-labelledby</h4>
+<p><em>This paragraph has an ID of "summer":</em></p>
+<p id="summer">Summer</p>
+
+<p><em>This link has an ID of "breeze", is labeled by "summer breeze"; the accName is "Summer Breeze"</em></p>
+<p><a href="#" id="breeze" aria-labelledby="summer breeze">Breeze</a></p>
+  
+<p><em>This link has an ID of "breeze2", is labeled by "breeze2 summer"; the accName is "Breeze Summer"</em></p>
+<p><a href="#" id="breeze2" aria-labelledby="breeze2 summer">Breeze</a></p>
+</div>
+  
+<h3>Buttons</h3>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>No ARIA</h4>
+<p>This button doesn't use ARIA.</p>
+<button>A standard button</button>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>No ARIA - duplicate</h4>
+<p>How does the tool deal with duplicate buttons?</p>
+<button>A standard button</button>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>aria-label, beginning match</h4>
+<p>aria-label="Join me in my quest"</p>
+<button aria-label="Join me in my quest">Join me</button>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>aria-label, match in the middle</h4>
+<p>aria-label="Wild eyes"</p>
+<button aria-label="Wild eyes">Eyes</button>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>aria-label, no match</h4>
+<p>aria-label="Sunrise"</p>
+<button aria-label="Sunrise">Sunset</button>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>aria-labelledby</h4>
+<p><em>This paragraph has an ID of "howdy":</em></p>
+<p id="howdy">Howdy</p>
+
+<p><em>This button has an ID of "partner", is labeled by "howdy partner"; the accName is "Howdy Partner"</em></p>
+<button id="partner" aria-labelledby="howdy partner">Partner</button>
+  
+<p><em>This button has an ID of "partner2", is labeled by "partner2 howdy"; the accName is "Partner Howdy"</em></p>
+<button id="partner2" aria-labelledby="partner2 howdy">Partner</button>
+  </div>
+  
+<h3>Form inputs</h3>
+
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>Text input, no ARIA</h4>
+<label for="myText1">My name</label>
+<input type="text" id="myText1">
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>Text input, aria-label, beginning match</h4>
+<p>aria-label="Your name is"</p>
+<label for="myText2">Your name</label>
+<input type="text" id="myText2" aria-label="Your name is">
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>Text input, aria-label, middle match</h4>
+<p>aria-label="My company name"</p>
+<label for="myText3">Company</label>
+<input type="text" id="myText3" aria-label="My company name">
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>Text input, aria-label, no match</h4>
+<p>aria-label="My ID"</p>
+<label for="myText4">Identification</label>
+<input type="text" id="myText4" aria-label="My ID">
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>Radio buttons, aria-label, beginning match</h4>
+<p>aria-label="yes way" for <em>yes</em> and "no way" for <em>no</em></p>
+<fieldset>
+  <legend>What is your answer?</legend>
+  <input type="radio" name="yesno" id="yes" aria-label="Yes way">
+  <label for="yes">Yes</label>
+   <input type="radio" name="yesno" id="no" aria-label="No way">
+  <label for="no">No</label>
+</fieldset>
+
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>Radio buttons, aria-label, middle match</h4>
+<p>aria-label="I believe" for <em>believe</em> and "I don't believe" for <em>don't believe</em></p>
+<fieldset>
+  <legend>Do you believe in love after love?</legend>
+  <input type="radio" name="believe" id="believe" aria-label="I believe">
+  <label for="believe">Believe</label>
+   <input type="radio" name="believe" id="dontbelieve" aria-label="I don't believe">
+  <label for="dontbelieve">Don't believe</label>
+</fieldset>
+
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>Radio buttons, aria-label, no match</h4>
+<p>aria-label="pickles" for <em>cheese</em> and "cucumber" for <em>coffee</em></p>
+<fieldset>
+  <legend>What's your favorite food?</legend>
+  <input type="radio" name="food" id="cheese" aria-label="pickles">
+  <label for="cheese">Cheese</label>
+   <input type="radio" name="food" id="coffee" aria-label="cucumber">
+  <label for="coffee">Coffee</label>
+</fieldset>
+  </div>
+<hr aria-hidden="true">
+
+<h2>VADS components</h2>
+<h3>Links</h3>
+
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>No ARIA</h4>
+  <p>This link doesn't use ARIA.</p>
+<p> 
+<va-link
+    href="https://va.gov/vso/"
+    text="Contact a local Veterans Service Organization (VSO)"
+  />
+</p>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>No ARIA, duplicate</h4>
+<p>How does the tool deal with duplicate "va-link" components?</p>
+<p> 
+<va-link
+    href="https://va.gov/vso/"
+    text="Contact a local Veterans Service Organization (VSO)"
+  />
+</p>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>aria-label, beginning match</h4>
+<p>aria-label="Records on VA.gov"</p>
+<p>
+<va-link
+    href="https://va.gov/"
+    text="Records"
+    label="Records on VA.gov"
+  />
+</p>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>aria-label, match in the middle</h4>
+<p>aria-label="Check your claims"</p>
+<p>
+<va-link
+    href="https://va.gov/"
+    text="Claims"
+    label="Check your claims"
+  />
+</p>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>aria-label, no match</h4>
+<p>aria-label="Evening"</p>
+<p>
+<va-link
+    href="https://va.gov/"
+    text="Morning"
+    label="Evening"
+  />
+</p>
+  </div>
+<p><em>There is no aria-labelledby option</em></p>
+
+<h3>Buttons</h3>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>No ARIA</h4>
+<p>This button doesn't use ARIA.</p>
+<va-button
+   onClick={function noRefCheck(){}}
+   text="Default">
+</va-button>
+</div>
+
+  <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>No ARIA, duplicate</h4>
+<p>How does the tool deal with duplicate "va-button" components?</p>
+<va-button
+   onClick={function noRefCheck(){}}
+   text="Default">
+</va-button>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>aria-label, beginning match</h4>
+<p>aria-label="Play a game"</p>
+<va-button
+  label="Play a game"
+  onClick={function noRefCheck(){}}
+  text="Play">
+</va-button>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>aria-label, match in the middle</h4>
+<p>aria-label="Legend of Zelda"</p>
+<va-button
+  label="Legend of Zelda"
+  onClick={function noRefCheck(){}}
+  text="Zelda">
+</va-button>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>aria-label, no match</h4>
+<p>aria-label="Bloodborne"</p>
+<va-button
+  label="Bloodborne"
+  onClick={function noRefCheck(){}}
+  text="Dark Souls">
+</va-button>
+
+<p><em>There is no aria-labelledby option</em></p>
+  </div>
+
+<h3>Form inputs</h3>
+
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>Text input, no ARIA</h4>
+<va-text-input
+  hint={null}
+  label="My input"
+  name="my-input"
+  onBlur={function noRefCheck(){}}
+  onInput={function noRefCheck(){}}
+  show-input-error>
+</va-text-input>
+
+<p><em>There is no aria-label or aria-labelledby option for text inputs</em></p>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>Radio button tile with description text</h4>
+<p>The tile's accName is "George Washington Carver This is optional text that can be used to describe the label in more detail."
+</p>
+
+  <va-radio
+    label="Select one historical figure"
+  >
+    <va-radio-option
+      id="soujourner-truth1"
+      label="Soujourner Truth"
+      name="group3"
+      tile
+      value="1"
+    /></va-radio-option>
+    <va-radio-option
+      description="This is optional text that can be used to describe the label in more detail."
+      id="george-washington-carver1"
+      label="George Washington Carver"
+      name="group3"
+      tile
+      value="2"
+    /></va-radio-option>
+  </va-radio>
+
+<p><em>Radio buttons have no aria-label or aria-labelledby options</em></p>
+</div>
+
+<div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
+<h4>Checkbox tile with description text</h4>
+<p>The generated accName is "Sojourner Truth  This is optional text that can be used to describe the label in more detail."
+<va-checkbox
+  checkbox-description="This is optional text that can be used to describe the label in more detail."
+  label="Sojourner Truth"
+  onBlur={function noRefCheck(){}}
+  tile
+/>
+</va-checkbox>
+  
+  <p><em>Checkboxes have no aria-label or aria-labelledby options</em></p>
+</div>
+  </body>
+</html>
