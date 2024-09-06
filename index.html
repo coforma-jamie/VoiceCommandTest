@@ -381,9 +381,10 @@
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
 <h4>Text input, no ARIA</h4>
+  <p>accName is "Input Option"</p>
 <va-text-input
-  hint={null}
-  label="My input"
+  hint="Option"
+  label="Input"
   name="my-input"
   onBlur={function noRefCheck(){}}
   onInput={function noRefCheck(){}}
@@ -395,7 +396,7 @@
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
 <h4>Radio button tile with description text</h4>
-<p>The tile's accName is "George Washington Carver This is optional text that can be used to describe the label in more detail."
+<p>The tile's accName is "Carver Option"
 </p>
 
   <va-radio
@@ -409,9 +410,9 @@
       value="1"
     /></va-radio-option>
     <va-radio-option
-      description="This is optional text that can be used to describe the label in more detail."
+      description="Option"
       id="george-washington-carver1"
-      label="George Washington Carver"
+      label="Carver"
       name="group3"
       tile
       value="2"
@@ -423,10 +424,10 @@
 
 <div class="vads-u-border--1px vads-u-border-style--dotted vads-u-padding-x--2 vads-u-margin-bottom--2">
 <h4>Checkbox tile with description text</h4>
-<p>The generated accName is "Sojourner Truth  This is optional text that can be used to describe the label in more detail."
+<p>The generated accName is "Truth Option"
 <va-checkbox
-  checkbox-description="This is optional text that can be used to describe the label in more detail."
-  label="Sojourner Truth"
+  checkbox-description="Option"
+  label="Truth"
   onBlur={function noRefCheck(){}}
   tile
 />
